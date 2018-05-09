@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index]
+  # 로그인을 하지 않아도 index 페이지만은 보이게해줌, 단 글쓰기 부터는 로그인 필요
 
   # GET /posts
   # GET /posts.json
